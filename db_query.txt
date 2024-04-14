@@ -1,0 +1,19 @@
+SELECT * FROM users.users_2_3_1;
+
+create table if not exists users.users_2_3_1 (
+id bigint primary key auto_increment,
+    firstName varchar(40) not null,
+    lastName varchar(40) not null,
+    age int not null,
+    email varchar(40) not null
+);
+
+INSERT INTO users.users_2_3_1 (firstName, lastName, age, email)
+VALUES
+	('James', 'Bond', 41, 'agent007@mi6.com'),
+	('Ethan', 'Hunt', 42,'mission-imposible@wagner.com'),
+	('Tony', 'Stark', 53,'T.Stark@starkindustries.st'),
+    ('Meglin', 'Rodion',48, 'no data'),
+    ('Elon', 'Musk', 52, 'elon.musk@SpaceX.com'),
+    ('Vladimir', 'Putin', 72, 'putin@email.ru'),
+    ('Alexandr', 'Lukashenko', 69, 'lukasBel@mail.by123');
