@@ -53,6 +53,30 @@ public class UserController {
         return "redirect:/users";
     }
 
+    @GetMapping("/truncate")
+    public String truncateUsersTable() {
+        userService.truncateTable();
+        return "redirect:/";
+    }
+
+    @GetMapping("/fill")
+    public String fillUsersTable() {
+        userService.fillUsersTable();
+        return "redirect:/";
+    }
+
+    @GetMapping("/create")
+    public String createUsersTable() {
+        userService.createUsersTable();
+        return "redirect:/";
+    }
+
+    @GetMapping("/drop")
+    public String dropUsersTable() {
+        userService.dropTable();
+        return "redirect:/";
+    }
+
 //    @GetMapping("/users/{id}/edit")
 //    public String editUser(@PathVariable("id") long id, Model model) {
 //        model.addAttribute("user", userService.getUserById(id));

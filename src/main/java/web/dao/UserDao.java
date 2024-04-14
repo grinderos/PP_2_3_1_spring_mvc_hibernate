@@ -11,18 +11,14 @@ public interface UserDao {
 
     User getUserById(long id);
 
-    static User createEmptyUser(){
-        return new User();
-    }
-
-    void updateUser(long id, User user);
-
     void deleteUser(long id);
     /*
     Далее идут вспомогательные методы, чтоб не лазить каждый раз в Workbench
     */
 
     void truncateTable();
+
+    void fillUsersTable();
 
     void createUsersTable();
 

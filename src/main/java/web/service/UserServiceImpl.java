@@ -36,17 +36,6 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional
-    public User createEmptyUser(){
-        return UserDao.createEmptyUser();
-    }
-    @Override
-    @Transactional
-    public void updateUser(long id, User user){
-        userDao.updateUser(id, user);
-    }
-
-    @Override
-    @Transactional
     public void deleteUser(long id){
         userDao.deleteUser(id);
     }
@@ -58,6 +47,11 @@ public class UserServiceImpl implements UserService {
     @Transactional
     public void truncateTable() {
         userDao.truncateTable();
+    }
+    @Override
+    @Transactional
+    public void fillUsersTable(){
+        userDao.fillUsersTable();
     }
 
     @Override

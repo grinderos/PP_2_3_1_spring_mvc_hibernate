@@ -13,10 +13,6 @@ public interface UserService {
 
     User getUserById(long id);
 
-    User createEmptyUser();
-
-    void updateUser(long id, User user);
-
     void deleteUser(long id);
 
     /*
@@ -24,7 +20,10 @@ public interface UserService {
     */
     void truncateTable();
 
+    void fillUsersTable();
+
     void createUsersTable();
 
     void dropTable();
+
 }
