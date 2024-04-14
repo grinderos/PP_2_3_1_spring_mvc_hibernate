@@ -7,12 +7,15 @@
 </head>
 <body>
 
-<form th:method="POST" th:action="/users/addOrUpdate">
-    <input type="submit" value="Add new user"/>
-</form>
-<div>
+<!--<form th:method="POST" th:action="/users/addOrUpdate">-->
+<!--    <input type="submit" value="Add new user"/>-->
+<!--</form>-->
+
+<div><br/>
+    <button onclick="window.location.href = '/users/new';">Add new user</button>
     <table border="1" width="600">
-        <caption><h3>List of Users</h3></caption>
+        <caption><h2>List of Users</h2></caption>
+<!--        <a href="/users/new" class="button">Add new user</a>-->
         <thead>
         <tr>
             <th> name </th>
@@ -23,22 +26,33 @@
         </thead>
         <tbody>
         <tr th:each="user, iterStat : ${users}">
+
             <td th:text="${user.firstName+' '+user.lastName}"></td>
             <td th:text="${user.age}"></td>
             <td th:text="${user.email}"></td>
             <td>
-<!--                <td th:method="DELETE" th:action="@{/users/{id}(id=${user.getId()})}">-->
-<!--                <input type="submit" value="Delete"/>-->
-<!--                </td>-->
+<!--                <a th:href="'/users/edit?id='+${user.id}">Update</a>-->
+                <form th:method="POST" th:action="@{/users/edit?id={id}(id=${user.getId()})}">
+                    <input type="submit" value="update"/>
+                </form>
 
-<!--                <a th:href="'/delete?id='+${user.id}">delete</a>-->
+<!--                <a th:href="'/delete?id='+${user.id}">Delete</a>-->
+                <form th:method="POST" th:action="@{/delete?id={id}(id=${user.getId()})}">
+                    <input type="submit" value="delete"/>
+                </form>
+
+
+<!--                <input type="hidden" th:field="${user.id}"/>-->
+<!--                <input type="button" value="Update"-->
+<!--                       th:onclick="|window.location.href= '@{/users/addOrUpdate(id=${user.getId()})}'|"/>-->
+<!--                <input type="button" value="Delete" th:onclick="window.location.href= @{/deleteUser(id=${user.getId()})}"/>-->
             </td>
         </tr>
         </tbody>
     </table>
 </div>
 <!--<br>-->
-<a href="/users/new">Create new User</a>
+<!--<a href="/users/new">Create new User</a>-->
 
 <!--<br>-->
 <!--<a href="/cars?count=1">http://localhost:8080/cars?count=1</a>-->

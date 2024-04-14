@@ -45,13 +45,15 @@ public class UserServiceImpl implements UserService {
         userDao.updateUser(id, user);
     }
 
+    @Override
+    @Transactional
     public void deleteUser(long id){
         userDao.deleteUser(id);
     }
+
     /*
     Далее идут вспомогательные методы, чтоб не лазить каждый раз в Workbench
     */
-
     @Override
     @Transactional
     public void truncateTable() {
