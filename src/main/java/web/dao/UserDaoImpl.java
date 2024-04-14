@@ -5,22 +5,22 @@ import web.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Repository;
-
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
-import javax.persistence.TypedQuery;
 import java.util.List;
 
 @Repository
 public class UserDaoImpl implements UserDao {
 
-    @Autowired
-    private Environment env;
+    private final Environment env;
 
     @PersistenceContext
     private EntityManager entityManager;
 
+    @Autowired
+    public UserDaoImpl(Environment env) {
+        this.env = env;
+    }
 
     @Override
     public void add(User user) {
@@ -42,20 +42,16 @@ public class UserDaoImpl implements UserDao {
     public void deleteUser(long id) {
         entityManager.remove(getUserById(id));
     }
+
+
     /*
-    Далее идут вспомогательные методы, чтоб не лазить каждый раз в Workbench
+    Далее идут вспомогательные методы
     */
 
     @Override
     @Transactional
     public void truncateTable() {
         existsTable("truncate");
-    }
-
-    @Override
-    @Transactional
-    public void dropTable() {
-        existsTable("drop");
     }
 
     @Override
@@ -75,22 +71,39 @@ public class UserDaoImpl implements UserDao {
                 .executeUpdate();
     }
 
-    @Override
-    @Transactional
-    public void createUsersTable() {
-        entityManager.createNativeQuery(
-                        "create table if not exists " +
-                                env.getProperty("db.tableUsers") +
-                                " (id bigint primary key auto_increment, " +
-                                "firstName varchar(40) not null, " +
-                                "lastName varchar(40) not null, " +
-                                "age int not null, " +
-                                "email varchar(40) not null;")
-                .executeUpdate();
-    }
-
-
     private void existsTable(String action) {
         entityManager.createNativeQuery(action + " table " + env.getProperty("db.tableUsers")).executeUpdate();
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+//@Override
+//@Transactional
+//public void dropTable() {
+//    existsTable("drop");
+//}
+
+
+//    @Override
+//    @Transactional
+//    public void createUsersTable() {
+//        entityManager.createNativeQuery(
+//                        "create table if not exists users." +
+//                                env.getProperty("db.tableUsers") +
+//                                " (id bigint primary key auto_increment, " +
+//                                "firstName varchar(40) not null, " +
+//                                "lastName varchar(40) not null, " +
+//                                "age int not null, " +
+//                                "email varchar(40) not null;")
+//                .executeUpdate();
+//    }

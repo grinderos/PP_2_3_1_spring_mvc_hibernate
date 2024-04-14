@@ -64,37 +64,26 @@ public class UserController {
         userService.fillUsersTable();
         return "redirect:/";
     }
-
-    @GetMapping("/create")
-    public String createUsersTable() {
-        userService.createUsersTable();
-        return "redirect:/";
-    }
-
-    @GetMapping("/drop")
-    public String dropUsersTable() {
-        userService.dropTable();
-        return "redirect:/";
-    }
-
-//    @GetMapping("/users/{id}/edit")
-//    public String editUser(@PathVariable("id") long id, Model model) {
-//        model.addAttribute("user", userService.getUserById(id));
-//        return "users/edit";
-//    }
-
-
-//    @PatchMapping("/users/{id}")
-//        public String updateUser(@PathVariable("id") long id, @ModelAttribute("user") User user) {
-//        userService.updateUser(id, user);
-//        return "redirect:/users/";
-//    }
-
-//    @PostMapping("/users/update")
-//    public String updateUserInBD(@RequestParam("id") long id, @ModelAttribute("user") User user) {
-//        userService.add(user);
-//        return "redirect:/users/";
-//    }
-
-
 }
+
+
+
+
+
+
+
+
+
+
+
+//    @GetMapping("/create")
+//    public String createUsersTable() {
+//        userService.createUsersTable();
+//        return "redirect:/";
+//    }
+//
+//    @GetMapping("/drop")
+//    public String dropUsersTable() {
+//        userService.dropTable();
+//        return "redirect:/";
+//    }

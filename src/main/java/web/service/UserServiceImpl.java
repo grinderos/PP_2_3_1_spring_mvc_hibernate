@@ -1,7 +1,5 @@
 package web.service;
 
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import web.config.DaoConfig;
 import web.dao.UserDao;
 import web.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,8 +11,12 @@ import java.util.List;
 @Service
 public class UserServiceImpl implements UserService {
 
+    private final UserDao userDao;
+
     @Autowired
-    private UserDao userDao;
+    public UserServiceImpl(UserDao userDao) {
+        this.userDao = userDao;
+    }
 
     @Transactional
     @Override
@@ -53,16 +55,25 @@ public class UserServiceImpl implements UserService {
     public void fillUsersTable(){
         userDao.fillUsersTable();
     }
-
-    @Override
-    @Transactional
-    public void createUsersTable() {
-        userDao.createUsersTable();
-    }
-
-    @Override
-    @Transactional
-    public void dropTable() {
-        userDao.dropTable();
-    }
 }
+
+
+
+
+
+
+
+
+
+
+//@Override
+//@Transactional
+//public void createUsersTable() {
+//    userDao.createUsersTable();
+//}
+//
+//@Override
+//@Transactional
+//public void dropTable() {
+//    userDao.dropTable();
+//}
