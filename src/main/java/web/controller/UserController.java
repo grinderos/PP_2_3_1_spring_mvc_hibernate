@@ -25,18 +25,18 @@ public class UserController {
     }
 
     @GetMapping("/users")
-    public String getUsers(Model model) {
+    public String getUsersFromBD(Model model) {
         model.addAttribute("users", userService.getUsers());
         return "users/users";
     }
 
     @GetMapping("/users/new")
     public String newUser(@ModelAttribute("user") User user) {
-        return "users/new";
+        return "users/editOrNew";
     }
 
-    @PostMapping("/users/new")
-    public String addNewUserToBD(@ModelAttribute("user") User user) {
+    @PostMapping("/users/addOrUpdate")
+    public String addUserToBD(@ModelAttribute("user") User user) {
         userService.add(user);
         return "redirect:/users";
     }
@@ -50,7 +50,7 @@ public class UserController {
     @GetMapping("/users/edit")
     public String editUser(@RequestParam("id") long id, Model model) {
         model.addAttribute("user", userService.getUserById(id));
-        return "users/edit";
+        return "users/editOrNew";
     }
 
 //    @PatchMapping("/users/{id}")
@@ -59,14 +59,14 @@ public class UserController {
 //        return "redirect:/users/";
 //    }
 
-    @PatchMapping("/users/update")
-    public String updateUser(@RequestParam("id") long id, @ModelAttribute("user") User user) {
-        userService.updateUser(id, user);
-        return "redirect:/users/";
-    }
+//    @PostMapping("/users/update")
+//    public String updateUserInBD(@RequestParam("id") long id, @ModelAttribute("user") User user) {
+//        userService.add(user);
+//        return "redirect:/users/";
+//    }
 
     @DeleteMapping("/delete")
-    public String deleteUser(@RequestParam("id") long id) {
+    public String deleteUserFromBD(@RequestParam("id") long id) {
         userService.deleteUser(id);
         return "redirect:/users";
     }

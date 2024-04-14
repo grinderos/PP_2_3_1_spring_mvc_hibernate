@@ -20,7 +20,7 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public void add(User user) {
-        sessionFactory.getCurrentSession().save(user);
+        sessionFactory.getCurrentSession().merge(user);
     }
 
     @Override

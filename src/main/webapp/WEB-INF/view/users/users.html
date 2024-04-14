@@ -6,6 +6,10 @@
     <title>Users</title>
 </head>
 <body>
+
+<form th:method="POST" th:action="/users/addOrUpdate">
+    <input type="submit" value="Add new user"/>
+</form>
 <div>
     <table border="1" width="600">
         <caption><h3>List of Users</h3></caption>
@@ -35,6 +39,7 @@
 </div>
 <!--<br>-->
 <a href="/users/new">Create new User</a>
+
 <!--<br>-->
 <!--<a href="/cars?count=1">http://localhost:8080/cars?count=1</a>-->
 <!--<br>-->
