@@ -22,8 +22,4 @@ public interface UserService {
 
     void fillUsersTable();
 
-//    void createUsersTable();
-//
-//    void dropTable();
-
 }

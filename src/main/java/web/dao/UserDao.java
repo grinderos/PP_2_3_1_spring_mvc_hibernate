@@ -20,7 +20,4 @@ public interface UserDao {
 
     void fillUsersTable();
 
-//    void createUsersTable();
-//
-//    void dropTable();
 }

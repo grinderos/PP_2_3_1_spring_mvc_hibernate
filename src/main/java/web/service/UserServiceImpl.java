@@ -56,24 +56,3 @@ public class UserServiceImpl implements UserService {
         userDao.fillUsersTable();
     }
 }
-
-
-
-
-
-
-
-
-
-
-//@Override
-//@Transactional
-//public void createUsersTable() {
-//    userDao.createUsersTable();
-//}
-//
-//@Override
-//@Transactional
-//public void dropTable() {
-//    userDao.dropTable();
-//}

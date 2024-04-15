@@ -75,35 +75,3 @@ public class UserDaoImpl implements UserDao {
         entityManager.createNativeQuery(action + " table " + env.getProperty("db.tableUsers")).executeUpdate();
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-//@Override
-//@Transactional
-//public void dropTable() {
-//    existsTable("drop");
-//}
-
-
-//    @Override
-//    @Transactional
-//    public void createUsersTable() {
-//        entityManager.createNativeQuery(
-//                        "create table if not exists users." +
-//                                env.getProperty("db.tableUsers") +
-//                                " (id bigint primary key auto_increment, " +
-//                                "firstName varchar(40) not null, " +
-//                                "lastName varchar(40) not null, " +
-//                                "age int not null, " +
-//                                "email varchar(40) not null;")
-//                .executeUpdate();
-//    }
