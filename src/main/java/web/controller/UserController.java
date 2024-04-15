@@ -69,25 +69,3 @@ public class UserController {
         return "users/truncateOrFillTable";
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-//    @GetMapping("/create")
-//    public String createUsersTable() {
-//        userService.createUsersTable();
-//        return "redirect:/";
-//    }
-//
-//    @GetMapping("/drop")
-//    public String dropUsersTable() {
-//        userService.dropTable();
-//        return "redirect:/";
-//    }

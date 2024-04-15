@@ -35,7 +35,6 @@ public class DaoConfig {
       return dataSource;
    }
 
-
    @Bean
    public LocalContainerEntityManagerFactoryBean getEntityManagerFactory() {
       final LocalContainerEntityManagerFactoryBean factoryBean = new LocalContainerEntityManagerFactoryBean();
@@ -52,7 +51,6 @@ public class DaoConfig {
 
       return factoryBean;
    }
-
 
    @Bean
    public JpaTransactionManager getTransactionManager() {
