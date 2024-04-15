@@ -15,5 +15,5 @@ VALUES
 	('Tony', 'Stark', 53,'T.Stark@starkindustries.st'),
     ('Meglin', 'Rodion',48, 'no data'),
     ('Elon', 'Musk', 52, 'elon.musk@SpaceX.com'),
-    ('Vladimir', 'Putin', 72, 'putin@email.ru'),
-    ('Alexandr', 'Lukashenko', 69, 'lukasBel@mail.by');
+    ('Владимир', 'Путин', 72, 'putin@email.ru'),
+    ('Александр', 'Лукашенко', 69, 'lukasBel@mail.by');
