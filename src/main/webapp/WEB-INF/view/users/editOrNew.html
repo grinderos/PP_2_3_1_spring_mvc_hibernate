@@ -8,9 +8,7 @@
 </head>
 <body>
 
-<!--<form th:method="PATCH" th:action="@{/users/{id}(id=${user.getId()})}" th:object="${user}">-->
 <form th:method="POST" th:action="@{/users/addOrUpdate}" th:object="${user}">
-
 
     <input type="hidden" th:field="*{id}"/>
 
@@ -27,7 +25,6 @@
     <br/>
     <input type="submit" value="save"/>
     <input type="button" value="Cancel" onclick="history.go(-1)"/>
-<!--    <input type="button" value="back" accept="/users"/>-->
 
 </form>
 </body>

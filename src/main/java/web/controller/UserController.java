@@ -43,8 +43,12 @@ public class UserController {
 
     @PostMapping("/users/addOrUpdate")
     public String addUserToBD(@ModelAttribute("user") User user) {
-        userService.add(user);
-        return "redirect:/users";
+        if(user.getAge()<0 || user.getFirstName().equals("") || user.getLastName().equals("") || user.getEmail().equals("")){
+            return "/users/badFieldErr";
+        } else {
+            userService.add(user);
+            return "redirect:/users";
+        }
     }
 
     @PostMapping("/delete")
@@ -56,13 +60,13 @@ public class UserController {
     @GetMapping("/truncate")
     public String truncateUsersTable() {
         userService.truncateTable();
-        return "redirect:/";
+        return "users/truncateOrFillTable";
     }
 
     @GetMapping("/fill")
     public String fillUsersTable() {
         userService.fillUsersTable();
-        return "redirect:/";
+        return "users/truncateOrFillTable";
     }
 }
 
