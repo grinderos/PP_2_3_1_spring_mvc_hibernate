@@ -22,8 +22,12 @@ import java.util.Properties;
 @ComponentScan(value = "web")
 public class DaoConfig {
 
+   private final Environment env;
+
    @Autowired
-   private Environment env;
+   public DaoConfig(Environment env) {
+      this.env = env;
+   }
 
    @Bean
    public DataSource getDataSource() {
